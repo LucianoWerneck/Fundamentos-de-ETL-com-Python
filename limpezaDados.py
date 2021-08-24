@@ -40,3 +40,9 @@ df.isna().sum()
 #comando para colocar um valor num campo de dado não informado
 df.fillna(0, inplace=True)
 df.fillna(value={'total_recomendacoes':10})
+
+#comando para remover coluna do arquivo
+df.drop(['total_recomendacoes'], axis=1, inplace=True)
+
+#comando para remover dados duplicados
+df.drop_duplicates(inplace=True)
