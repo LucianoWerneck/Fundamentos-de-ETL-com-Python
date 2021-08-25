@@ -3,7 +3,7 @@ import pandas as pd
 
 df = pd.read_csv("ocorrencia_2010_2020.csv", sep=";", parse_dates=['ocorrencia_dia'], dayfirst=True)
 del df["codigo_ocorrencia1"]
-df = df.drop(df.columns[[ 2, 3, 5, 6, 9, 13, 14, 15, 16, 17, 19, 20]], axis=1)
+df = df.drop(df.columns[[2, 3, 5, 6, 9, 13, 14, 15, 16, 17, 19, 20]], axis=1)
 df.head(5)
 
 #comando para acessar dados utilizando o rotulo da linha
@@ -32,7 +32,7 @@ df.loc[df.ocorrencia_uf == 'SP', ['ocorrencia_classificacao']] = 'GRAVE'
 
 #comando para fazer limpeza dos dados
 df.loc[df.ocorrencia_aerodromo == '****', ['ocorrencia_aerodromo']] = pd.NA
-df.replace(['**', '###', '####', '****', '*****', 'NULL'], pd.NA, inplace=True)
+df.replace(['**', '###!', '####', '****', '*****', 'NULL'], pd.NA, inplace=True)
 pd.set_option('display.max_columns', 10)
 df.head()
 df.isna().sum()

@@ -8,22 +8,21 @@ df = pd.read_csv("ocorrencia_2010_2020.csv", sep=";", parse_dates=["ocorrencia_d
 #comando para deletar colunas
 del df["codigo_ocorrencia1"]
 df = df.drop(df.columns[[ 2, 3, 5, 6, 9, 13, 14, 15, 16, 17, 19, 20]], axis=1)
-
+df = df.drop(df.columns[[3, 4, 6, 7, 10, 14, 15, 16, 17, 18, 20, 21 ]])
 #comando para realizar exibição 10 colunas do dataframe
 pd.set_option('display.max_columns', 10)
 
 #comando para realizar exibição 10 linhas
-print(df.tail(10))
+df.tail(10)
 
 #comando lista as informações do arquivo
-print(df.info)
+df.info
 
 #comando que mostra os tipos de dados das colunas
-print(df.dtypes)
+df.dtypes
 
-#comando para acessar a coluna, expecificando a busca por mês após ter
-#sido converter o tipo de obejeto para datetime
-print(df.ocorrencia_dia.dt.month)
+#comando para acessar dado especifico da coluna
+df.ocorrencia_dia.dt.month
 
 #comando de validação de cada dado recebido pelo dataframe
 schema = pa.DataFrameSchema(
